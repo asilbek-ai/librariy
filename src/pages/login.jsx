@@ -10,25 +10,23 @@ function Login() {
   const[password, setPassword] = useState("")
     const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post(API + '/login', { username, password })
-      .then(res => {console.log(res);
-        if (res.data.success) {
-           navigate("/admin") 
-           
-        } else {
-          alert('Login xato')
-        }
-      })
-      .catch(err => {console.log(err);
-        alert(err)
-      })
+const handleSubmit = (e) => {
+  e.preventDefault()
 
-
-
-      
-  }
+  axios.post(API + '/login', { phone: username, password })
+    .then(res => {
+      console.log(res)
+      if (res.data.access_token) {
+        navigate("/admin")
+      } else {
+        alert('Login xato')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      alert("login yoki")
+    })
+}
 
 
   return (

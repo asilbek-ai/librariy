@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/login";  
-import Admin from "./pages/admin"
+import Admin from "./pages/admin/admin";  
+import Login from "./pages/login"
+import Books from "./pages/books/index"
 
 
 
@@ -10,6 +11,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/books" element={<Books />} />
     </Routes>
   );
 }
